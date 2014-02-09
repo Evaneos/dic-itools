@@ -25,6 +25,12 @@
 		"symfony/yaml" : "2.5.x-dev",
 		"psr/log" : "~1"
 	},
+    "bin": [
+        "app/dic-itools"
+    ],
+    "config": {
+        "bin-dir": "bin"
+    },
 	"require-dev" : {
 		"squizlabs/php_codesniffer" : "~1.5",
 		"league/phpunit-coverage-listener" : "~1.0",
