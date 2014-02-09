@@ -1,0 +1,18 @@
+classes: 
+    MyServiceWithMissingDependencies:
+        class: \stdClass
+        props:
+            myMissingProperty: @MyMissingService
+            myMissingParameter: %MyMissingParameter
+    MyServiceWithUndefinedType:
+        class: \DICIT\Some\Dummy\Namespace\No\One\Will\Hopefully\Ever\Use\MissingClass
+    MyEmptyServiceNode: []
+    MyCyclicServiceNode:
+        class: \stdClass
+        props: 
+            myCyclicProperty: @MyCyclicCounterPartNode
+    MyCyclicCounterPartNode:
+        class: \stdClass
+        singleton: false
+        props:
+            myCyclicProperty: @MyCyclicServiceNode

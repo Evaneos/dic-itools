@@ -1,0 +1,11 @@
+#!/usr/bin/env php
+# app/console
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+use Symfony\Component\Console\Application;
+
+$application = new Application('Evaneos Dependency Injection Tools', '0.1');
+$application->add(new \DICIT\Tools\Commands\ConfigCheckCommand());
+$application->run();
