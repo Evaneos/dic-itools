@@ -1,14 +1,15 @@
 <?php
-
 namespace DICIT\Tools\Validation;
 
 use DICIT\ArrayResolver;
+
 class CyclicDependencyValidator implements ConfigValidator
 {
 
     private $currentNodeName;
 
-    public function validateService(Validator $validator, ArrayResolver $global, $serviceName, ArrayResolver $serviceNode)
+    public function validateService(Validator $validator, ArrayResolver $global, $serviceName,
+        ArrayResolver $serviceNode)
     {
         $this->currentNodeName = $serviceName;
 

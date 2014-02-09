@@ -1,5 +1,4 @@
 <?php
-
 namespace DICIT\Tools\Validation;
 
 use DICIT\ArrayResolver;
@@ -7,7 +6,8 @@ use DICIT\ArrayResolver;
 class ConstructorArgumentsValidator implements ConfigValidator
 {
 
-    public function validateService(Validator $validator, ArrayResolver $global, $serviceName, ArrayResolver $serviceNode)
+    public function validateService(Validator $validator, ArrayResolver $global, $serviceName,
+        ArrayResolver $serviceNode)
     {
         $class = $serviceNode->resolve('class');
 
@@ -24,7 +24,7 @@ class ConstructorArgumentsValidator implements ConfigValidator
             $ctorArgs = $serviceNode->resolve('args', array());
 
             if ($reflectionCtor == null) {
-                if( ! empty($args)) {
+                if (! empty($args)) {
                     $validator->addWarning('Constructor arguments are provided, but no constructor was found.');
                 }
 
@@ -32,10 +32,10 @@ class ConstructorArgumentsValidator implements ConfigValidator
             }
 
             if (count($ctorArgs) < $reflectionCtor->getNumberOfRequiredParameters()) {
-                $validator->addError(sprintf('Invalid parameter count : %d instead of %d required.',
-                    count($ctorArgs), $reflectionCtor->getNumberOfParameters()));
+                $validator->addError(
+                    sprintf('Invalid parameter count : %d instead of %d required.', count($ctorArgs),
+                        $reflectionCtor->getNumberOfParameters()));
             }
         }
     }
-
 }

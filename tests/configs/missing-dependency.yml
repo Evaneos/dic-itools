@@ -1,4 +1,4 @@
-classes: 
+classes:
     MyServiceWithMissingDependencies:
         class: \stdClass
         props:
@@ -9,7 +9,7 @@ classes:
     MyEmptyServiceNode: []
     MyCyclicServiceNode:
         class: \stdClass
-        props: 
+        props:
             myCyclicProperty: @MyCyclicCounterPartNode
     MyCyclicCounterPartNode:
         class: \stdClass

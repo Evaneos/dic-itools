@@ -7,5 +7,5 @@ use DICIT\ArrayResolver;
 interface ConfigValidator
 {
 
-    function validateService(Validator $validator, ArrayResolver $global, $serviceName, ArrayResolver $serviceNode);
+    public function validateService(Validator $validator, ArrayResolver $global, $serviceName, ArrayResolver $serviceNode);
 }

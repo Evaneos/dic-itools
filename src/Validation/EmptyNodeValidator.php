@@ -3,6 +3,7 @@
 namespace DICIT\Tools\Validation;
 
 use DICIT\ArrayResolver;
+
 class EmptyNodeValidator implements ConfigValidator
 {
 
