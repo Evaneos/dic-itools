@@ -1,7 +1,10 @@
+parameters:
+    test: test
 classes:
     MyServiceWithMissingDependencies:
         class: \stdClass
         props:
+            myDefinedProperty: %test
             myMissingProperty: @MyMissingService
             myMissingParameter: %MyMissingParameter
     MyServiceWithUndefinedType:
@@ -16,5 +19,13 @@ classes:
         singleton: false
         props:
             myCyclicProperty: @MyCyclicServiceNode
+    InjectorFactory:
+        class: \DICIT\InjectorFactory
     MyServiceWithInvalidConstructorArguments:
         class: \DICIT\Container
+    MyServiceWithMistypedConstructorArguments:
+        class: \DICIT\Container
+        arguments: [ 'Hello', %test, @MyServiceWithMissingDependencies ]
+    MyServiceWithTooManyConstructorArguments:
+        class: \DICIT\Container
+        arguments: [ 'Hello', @MyServiceWithMissingDependencies, @InjectorFactory, %test ]
